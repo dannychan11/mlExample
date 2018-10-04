@@ -16,7 +16,7 @@ mpl.rcParams['font.sans-serif'] = [u'simHei']
 mpl.rcParams['axes.unicode_minus'] = False
 
 # 加载数据
-path = '../datas/household_power_consumption_1000.txt'
+path = './datas/household_power_consumption_1000.txt'
 df = pd.read_csv(filepath_or_buffer=path, sep=';')
 # 查看一下info信息
 # print(df.info())

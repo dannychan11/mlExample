@@ -15,19 +15,30 @@ mpl.rcParams['axes.unicode_minus'] = False
 # 给定随机数种子：当程序多次运行的时候，可以保证每次运行时候随机的数据都是一样的
 np.random.seed(28)
 n = 100
+'''
+loc：float
+    此概率分布的均值（对应着整个分布的中心centre）
+scale：float
+    此概率分布的标准差（对应于分布的宽度，scale越大越矮胖，scale越小，越瘦高），就是方差开根号，seq和(x-u)**2/n
+size：int or tuple of ints
+    输出的shape，默认为None，只输出一个值
+'''
 b_values = np.random.normal(loc=-1.0, scale=20.0, size=n)
 c_values = np.random.normal(loc=0.0, scale=1.0, size=n)
-print("b的均值:{}".format(np.mean(b_values)))
+print("b的均值:{}".format(np.mean(b_values)))#求均值
 
 
-# # 随机数据可视化查看
-# plt.figure(facecolor='w')
-# plt.subplot(1, 2, 1)
-# plt.hist(b_values, 1000, color='#FF0000')
-# plt.subplot(1, 2, 2)
-# plt.hist(c_values, 1000, color='#00FF00')
-# plt.suptitle(u'随机数据可视化', fontsize=22)
+# 随机数据可视化查看
+# plt.figure(facecolor='w')#背景色为白色
+# plt.subplot(1, 2, 1)#创建子图 1行2列 索引位为1的图像
+# plt.hist(b_values, bins=n, color='#FF0000') #直方图
+# plt.subplot(1, 2, 2)#创建子图 1行2列 索引位为1的图像
+# plt.hist(c_values, bins=n, color='#00FF00')
+# plt.suptitle(u'随机数据可视化', fontsize=22) #总标题
 # plt.show()
+
+
+
 
 def calc_min_value_with_one_sample(b_values, c_values, max_iter=1000, tol=0.00001, alpha=0.01):
     """
@@ -91,8 +102,7 @@ def calc_min_value_with_one_sample(b_values, c_values, max_iter=1000, tol=0.0000
         current_y = tmp_y
     print("最终更新的次数:{}, 最终的变化率:{}".format(step, step_channge))
     print("最终结果为:{}---->{}".format(current_x, current_y))
-
-
+'''
 def calc_min_value_with_ten_sample(n, b_values, c_values, max_iter=1000, tol=0.00001, alpha=0.01):
     """
     计算最小值时候对应的x和y的值
@@ -372,12 +382,12 @@ def calc_min_value_with_n_sample_sgd(n, b_values, c_values, max_iter=1000, tol=0
         plt.suptitle('SGD变换情况可视化')
         plt.show()
 
-
-# print("*" * 50)
-# calc_min_value_with_one_sample(b_values, c_values)
+'''
+print("*" * 50)
+calc_min_value_with_one_sample(b_values, c_values)
 # print("*" * 50)
 # calc_min_value_with_ten_sample(n, b_values, c_values)
 # print("*" * 50)
 # calc_min_value_with_n_sample(n, b_values, c_values)
 print("*" * 50)
-calc_min_value_with_n_sample_sgd(n, b_values, c_values)
+#calc_min_value_with_n_sample_sgd(n, b_values, c_values)
